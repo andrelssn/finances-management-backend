@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::create('user_info', function (Blueprint $table) {
+        Schema::create('repartitions', function (Blueprint $table) {
             $table
                 ->id();
             $table
-                ->integer('id_user')
+                ->unsignedBigInteger('id_user')
                 ->nullable(false);
             $table
                 ->string('repartition_name')
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('repartitions');
     }
 };

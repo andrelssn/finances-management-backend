@@ -11,15 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_info', function (Blueprint $table) {
+        Schema::create('monthly_expenses', function (Blueprint $table) {
             $table
                 ->id();
             $table
-                ->integer('id_user')
+                ->unsignedBigInteger('id_user')
                 ->nullable(false);
             $table
-                ->bigInteger('fixed value')
+                ->string('expense_name')
                 ->nullable(false);
+            $table
+                ->bigInteger('expense_value')
+                ->nullable(false);
+            $table
+                ->boolean('parceled')
+                ->nullable(false)
+                ->default(false);
+            $table
+                ->integer('parcels')
+                ->nullable(true);
 
             // FK
             $table
@@ -35,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_info');
+        Schema::dropIfExists('monthly_expenses');
     }
 };

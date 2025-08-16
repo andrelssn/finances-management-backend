@@ -11,7 +11,34 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('objectives', function (Blueprint $table) {
+            $table
+                ->id();
+            $table
+                ->unsignedBigInteger('id_user')
+                ->nullable(false);
+            $table
+                ->string('objective_name')
+                ->nullable(false);
+            $table
+                ->bigInteger('objective_value')
+                ->nullable(false);
+            $table
+                ->bigInteger('current_value')
+                ->nullable(false)
+                ->default(0);
+            $table
+                ->boolean('completed')
+                ->nullable(false)
+                ->default(false);
+
+            // FK
+            $table
+                ->foreign('id_user')
+                ->references('id')
+                ->on('users')
+                ->nullable(false);
+        });
     }
 
     /**
@@ -19,6 +46,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('objectives');
     }
 };
