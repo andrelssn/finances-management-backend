@@ -32,4 +32,21 @@ class UserInfoService
 
         return $update;
     }
+
+    public function updateUserName(Request $request, int $id): bool
+    {
+        $data = $this->userInfoRepository->getWhere($id);
+
+        if (!isset($data)) {
+            throw new HttpResponseException(response: response()->json([
+                'error' => 'User not found'
+            ], 422));
+        };
+
+        $update = User::where('id', $id)->update([
+            'name' => $request->name,
+        ]);
+
+        return $update;
+    }
 }

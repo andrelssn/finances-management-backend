@@ -44,9 +44,28 @@ class UserInfoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function updateValue(Request $request, int $id)
     {
         $requisition = $this->userInfoService->updateUserInfo($request, $id);
+
+        if (!$requisition) {
+            throw new HttpResponseException(response()->json([
+                'error' => "An error has ocurred during the requisition."
+            ], 422));
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => "User info updated.",
+        ], 200);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateName(Request $request, int $id)
+    {
+        $requisition = $this->userInfoService->updateUserName($request, $id);
 
         if (!$requisition) {
             throw new HttpResponseException(response()->json([

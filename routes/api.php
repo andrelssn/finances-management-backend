@@ -16,7 +16,8 @@ Route::prefix('user')->middleware('auth:sanctum')->group(function() {
         return $request->user();
     });
 
-    Route::put('/value/{id}', [UserInfoController::class, 'update']);
+    Route::put('/value/{id}', [UserInfoController::class, 'updateValue']);
+    Route::put('/name/{id}', [UserInfoController::class, 'updateName']);
 });
 
 Route::get('/web', function () {
