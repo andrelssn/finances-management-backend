@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table
-                ->bigInteger('fixed_value')
+                ->decimal('fixed_value', 10, 2)
                 ->nullable(true);
             $table->rememberToken();
             $table->timestamps();
