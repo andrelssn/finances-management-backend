@@ -21,7 +21,7 @@ return new class extends Migration
                 ->string('expense_name')
                 ->nullable(false);
             $table
-                ->bigInteger('expense_value')
+                ->decimal('expense_value', 10, 2)
                 ->nullable(false);
             $table
                 ->boolean('parceled')
@@ -29,6 +29,9 @@ return new class extends Migration
                 ->default(false);
             $table
                 ->integer('parcels')
+                ->nullable(true);
+            $table
+                ->integer('current_parcel')
                 ->nullable(true);
 
             // FK

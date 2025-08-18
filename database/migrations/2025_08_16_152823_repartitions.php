@@ -21,7 +21,7 @@ return new class extends Migration
                 ->string('repartition_name')
                 ->nullable(false);
             $table
-                ->bigInteger('repartition_value')
+                ->decimal('repartition_value', 10, 2)
                 ->nullable(false);
 
             // FK

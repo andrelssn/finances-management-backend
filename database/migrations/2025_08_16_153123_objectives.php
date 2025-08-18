@@ -21,10 +21,10 @@ return new class extends Migration
                 ->string('objective_name')
                 ->nullable(false);
             $table
-                ->bigInteger('objective_value')
+                ->decimal('objective_value', 10, 2)
                 ->nullable(false);
             $table
-                ->bigInteger('current_value')
+                ->decimal('current_value', 10, 2)
                 ->nullable(false)
                 ->default(0);
             $table
