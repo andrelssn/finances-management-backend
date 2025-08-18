@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MonthlyExpenses extends Model
+class Objectives extends Model
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
@@ -20,11 +20,10 @@ class MonthlyExpenses extends Model
      */
     protected $fillable = [
         'id_user',
-        'expense_name',
-        'expense_value',
-        'parceled',
-        'parcels',
-        'current_parcel'
+        'objective_name',
+        'objective_value',
+        'current_value',
+        'completed',
     ];
 
     /**

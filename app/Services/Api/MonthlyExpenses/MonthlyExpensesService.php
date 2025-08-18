@@ -46,11 +46,12 @@ class MonthlyExpensesService
         };
 
         $post = MonthlyExpenses::create([
-            'id_user'       => $request->id,
-            'expense_name'  => $request->expense_name,
-            'expense_value' => $request->expense_value,
-            'parceled'      => $request->parceled,
-            'parcels'       => $request->parcels,
+            'id_user'        => $request->id,
+            'expense_name'   => $request->expense_name,
+            'expense_value'  => $request->expense_value,
+            'parceled'       => $request->parceled,
+            'parcels'        => $request->parcels,
+            'current_parcel' => $request->current_parcel,
         ]);
 
         return $post;
@@ -67,10 +68,11 @@ class MonthlyExpensesService
         };
 
         $update = MonthlyExpenses::where('id', $id)->update([
-            'expense_name'  => $request->expense_name,
-            'expense_value' => $request->expense_value,
-            'parceled'      => $request->parceled,
-            'parcels'       => $request->parcels,
+            'expense_name'   => $request->expense_name,
+            'expense_value'  => $request->expense_value,
+            'parceled'       => $request->parceled,
+            'parcels'        => $request->parcels,
+            'current_parcel' => $request->current_parcel,
         ]);
 
         return $update;
